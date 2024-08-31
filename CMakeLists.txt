@@ -38,25 +38,25 @@ install (
     DESTINATION ${CMAKE_BINARY_DIR}/lib
 )
 
-add_executable(
-    MyExecutable
-        "src/main.cpp"
-)
+# add_executable(
+#     MyExecutable
+#         "src/main.cpp"
+# )
 
 
 
-target_include_directories(
-    MyExecutable
-    PRIVATE
-        ${CMAKE_SOURCE_DIR}/include
+# target_include_directories(
+#     MyExecutable
+#     PRIVATE
+#         ${CMAKE_SOURCE_DIR}/include
 
-)
+# )
 
-target_link_libraries(
-    MyExecutable
-    PRIVATE
-        MyLibrary
-)
+# target_link_libraries(
+#     MyExecutable
+#     PRIVATE
+#         MyLibrary
+# )
 
 if (CMAKE_BUILD_TYPE STREQUAL "DEBUG" OR enable_tests)
 	add_subdirectory(tests/unit-tests)

@@ -26,12 +26,16 @@ endif()
 add_executable(
     myTest 
     run-tests.cpp
+    utils.hpp
     aux-functions-test.hpp
     fixed-point-test.cpp
     bisection-test.cpp
     secant-test.cpp
     newton-test.cpp
-
+    matrix-test.cpp
+	gauss-elimination-test.cpp
+	thomas-algorithm-test.cpp
+	LU-decomposition-test.cpp
 )
 
 target_link_libraries(myTest PRIVATE MyLibrary gtest gtest_main)
