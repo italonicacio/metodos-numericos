@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.22)
 
 project(MyProject CXX)
 
+find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+
 set(CMAKE_CXX_STANDARD 23)
 add_compile_options(-fpermissive)
 
@@ -20,11 +22,11 @@ target_include_directories(
         ${CMAKE_SOURCE_DIR}/include
 )
 
-# target_link_libraries(
-#     MyLibrary
-#     PUBLIC
-#         <ADD_EXTERN_LIBRARIES>
-# )
+target_link_libraries(
+    MyLibrary
+    PUBLIC
+        Eigen3::Eigen
+)
 
 set_target_properties( 
     MyLibrary

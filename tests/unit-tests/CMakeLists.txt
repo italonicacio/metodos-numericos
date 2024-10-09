@@ -22,6 +22,7 @@ if(NOT GTest_FOUND)
 
 endif()
 
+find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 
 add_executable(
     myTest 
@@ -36,9 +37,10 @@ add_executable(
 	gauss-elimination-test.cpp
 	thomas-algorithm-test.cpp
 	LU-decomposition-test.cpp
+	lagrange-test.cpp
 )
 
-target_link_libraries(myTest PRIVATE MyLibrary gtest gtest_main)
+target_link_libraries(myTest PRIVATE MyLibrary GTest::gtest GTest::gtest_main Eigen3::Eigen)
 
 target_include_directories(
     myTest 
