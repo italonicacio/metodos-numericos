@@ -3,3 +3,7 @@ build
 
 #vscode
 .vscode
+
+env/
+__pycache__/
+.pytest_cache/

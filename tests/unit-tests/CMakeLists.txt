@@ -4,25 +4,24 @@ include(FetchContent)
 
 option(INSTALL_DEPS "Install dependencies" OFF)
 
-find_package(GTest QUIET)
-message(STATUS "GTest_FOUND: ${GTest_FOUND}")
+# find_package(GTest QUIET)
+# message(STATUS "GTest_FOUND: ${GTest_FOUND}")
 
 
-if(NOT GTest_FOUND)
-    message(STATUS "GTest not found, using FetchContent to download it")
-    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+# if(NOT GTest_FOUND)
+# message(STATUS "GTest not found, using FetchContent to download it")
+message(STATUS "GTest, using FetchContent to download it")
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
-    FetchContent_Declare(
-        googletest
-        GIT_REPOSITORY https://github.com/google/googletest.git
-        GIT_TAG        v1.14.0
-    )
+FetchContent_Declare(
+	googletest
+	GIT_REPOSITORY https://github.com/google/googletest.git
+	GIT_TAG        v1.10.0
+)
 
-    FetchContent_MakeAvailable(googletest)
+FetchContent_MakeAvailable(googletest)
 
-endif()
-
-find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+# endif()
 
 add_executable(
     myTest 
@@ -40,7 +39,7 @@ add_executable(
 	lagrange-test.cpp
 )
 
-target_link_libraries(myTest PRIVATE MyLibrary GTest::gtest GTest::gtest_main Eigen3::Eigen)
+target_link_libraries(myTest PRIVATE MyLibrary gtest gtest_main)
 
 target_include_directories(
     myTest 
